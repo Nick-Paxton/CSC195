@@ -3,9 +3,14 @@ class Employee
 {
 	// put properties at the top
 public:
-	char name[33];
-	int age = 0;
+	const float TAX = 0.1f;
+	char name[32];
 	float hoursPerDay[7];
+	short shDaysWorked = 0;
+	float fWage = 0;
+	float fGrossPay = 0;
+	float fTotalTaxes = 0;
+	float fNetPay = 0;
 
 protected:
 
@@ -14,6 +19,7 @@ private:
 
 	// Put methods in the middle
 public:
+	Employee();
 	void Read();
 	void Write();
 
