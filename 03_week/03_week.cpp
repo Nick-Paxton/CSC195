@@ -1,6 +1,7 @@
 #include <iostream>
-//#include "Test.h" this was used as a test for header files and how they work
+#include "Test.h"
 #include "MyConfig.h"
+#include "MyDerived.h"
 using namespace std;
 struct Person
 {
@@ -15,9 +16,9 @@ void Square(int iVal) {
 	iVal = iVal * iVal;
 }
 
-void SquareRef(int& iVal) {
-	iVal = iVal * iVal;
-}
+//void SquareRef(int& iVal) {
+//	iVal = iVal * iVal;
+//}
 
 void Double(int* iVal) {
 	*iVal = *iVal * 2;
@@ -70,7 +71,7 @@ int main()
 
 	// !! notice how the variable has not changed, this is because we only passed the value to the function !!
 	// change the Square function to take a int reference
-	SquareRef(iRef); // Pass by ref (alias)
+	//SquareRef(iRef); // Pass by ref (alias)
 	cout << "\n After SquareRef() myInt value = " << myInt;
 
 	// !! notice how the calling variable has now changed, this is because we 'passed by reference' !!
@@ -124,6 +125,15 @@ int main()
 	// read in a name from the console and set it to the person name, do this for the id also, do this for both Persons
 	// use a for loop and output the name and id of each person in the array
 	// deallocate the person pointer to free up the memory block (remember it's an array)
+
+	Line();
+
+	MyBase base;
+	cout << "\n base(2) = " << base.AddSomething(2);
+	MyDerived der;
+	cout << "\n der(2) = " << der.AddSomething(2);
+
+
 	cout << "\n";
 }
 

@@ -1,5 +1,4 @@
 #include <iostream>
-//#include "Test.h" this was used as a test for header files and how they work
 using namespace std;
 struct Person
 {
@@ -104,20 +103,56 @@ int main()
 	// ** ALLOCATION/DEALLOCATION **
 	//
 	// create an int pointer that points at an int allocated on the heap, set the allocated int value to some number
+	int* iHeapPtr = new int;
+	*iHeapPtr = 42;
+
 	// output the pointer value, this should be the address of the int allocated on the heap
+	cout << "\n Address of the heap int: " << iHeapPtr;
 	// output the dereference pointer
+	cout << "\n Value of the heap int: " << *iHeapPtr;
 	// deallocate the int pointer to free up the memory
+	delete iHeapPtr;
 	// create an int pointer that points at an array of ints allocated on the heap, the array size should be 4 - 6
+	int *iPtrA = new int[6];
 	// use a for loop and set each int in the array to a random number (use => rand() % 10 to get a random number
+	srand(time(0));
+	for (int iCount = 0; iCount < 6; iCount++) {
+		iPtrA[iCount] = rand() % 10;
+	}
 	// use a for loop and output each of the ints in the array
+	for (int iCount = 0; iCount < 6; iCount++) {
+		cout << "\n Value at index " << iCount << ": " << iPtrA[iCount];
+	}
 	// use a for loop and output the address of each of the ints in the array
+	for (int iCount = 0; iCount < 6; iCount++) {
+		cout << "\n Address at index " << iCount << ": " << &iPtrA[iCount];
+	}
 	// deallocate the int pointer to free up the memory block (remember it's an array)
+	delete[] iPtrA;
+
+	Line();
 	// ** STRUCTURE **
 	//
 	// create a Person pointer that points at an array of Persons allocated on the heap, the array size should be 2
+	Person* myPerson = new Person[2];
+
 	// read in a name from the console and set it to the person name, do this for the id also, do this for both Persons
+	cout << "\n Enter the first person's name: ";
+	cin >> myPerson[0].name;
+	cout << "\n Enter the first person's id: ";
+	cin >> myPerson[0].id;
+	cout << "\n Enter the second person's name: ";
+	cin >> myPerson[1].name;
+	cout << "\n Enter the second person's id: ";
+	cin >> myPerson[1].id;
 	// use a for loop and output the name and id of each person in the array
+	for (int iCount = 0; iCount < 2; iCount++) {
+		cout << "\n Person's name at index " << iCount << ": " << myPerson[iCount].name;
+		cout << "\n Person's id at index " << iCount << ": " << myPerson[iCount].id;
+	}
 	// deallocate the person pointer to free up the memory block (remember it's an array)
-	cout << "\n";
+	delete[] myPerson;
+
+	Line();
 }
 

@@ -2,7 +2,11 @@
 #include <iostream>
 using namespace std;
 
-Employee::Employee() {
+Employee::Employee() { // Constructor
+
+}
+
+Employee::~Employee() { // Destructor
 
 }
 

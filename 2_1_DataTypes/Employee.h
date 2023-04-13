@@ -20,6 +20,7 @@ private:
 	// Put methods in the middle
 public:
 	Employee();
+	~Employee();
 	void Read();
 	void Write();
 
