@@ -5,6 +5,7 @@ struct Person
 	char name[32];
 	int id;
 };
+
 void Line() {
 	cout << "\n\n-----------------------------------\n";
 }
