@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+
 using namespace std;
 
 class Animal
@@ -14,7 +15,9 @@ protected:
 
 public:
 	virtual eType GetType() = 0; // Pure virtual function
+	string GetTypeName();
 	virtual void Read(std::ostream& ostr, std::istream& istr);
-
+	virtual void Write(std::ostream& ostr);
+	string GetName();
 };
 
