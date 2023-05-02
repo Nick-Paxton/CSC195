@@ -29,3 +29,14 @@ void Animal::Write(std::ostream& ostr) {
 string Animal::GetName() {
 	return this->_name;
 }
+// ////////////////////////////////////
+void Animal::Read(std::ifstream& iftr) {
+	iftr >> this->_name;
+	iftr >> this->_lifespan;
+}
+// ////////////////////////////////////
+void Animal::Write(std::ofstream& oftr) {
+	oftr << (int)this->GetType() << std::endl; // this must be first
+	oftr << this->_name << std::endl;
+	oftr << this->_lifespan << std::endl;
+}

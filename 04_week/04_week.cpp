@@ -17,15 +17,17 @@ int main()
     int iTemp = 0;
     string inputName = "";
 
-    while (iMenu != 6) {
+    while (iMenu != 8) {
         cout << "\n\n Enter Menu option: ";
         cout << "\n 1) Create Animal";
         cout << "\n 2) Display All";
         cout << "\n 3) Display by Name";
         cout << "\n 4) Display by Type";
-        cout << "\n 5) ";
-        cout << "\n 6) Quit\n";
-        iMenu = input.GetUserInt(1, 6);
+        cout << "\n 5) Remove All";
+        cout << "\n 6) Load From File";
+        cout << "\n 7) Save To File";
+        cout << "\n 8) Quit\n";
+        iMenu = input.GetUserInt(1, 8);
 
         switch (iMenu) {
         case 1: // Create a Bird/Fish
@@ -71,6 +73,18 @@ int main()
                 db.Display(cout, Animal::eType::Fish);
                 break;
             }
+            break;
+
+        case 5:
+            db.RemoveAll();
+            break;
+
+        case 6:
+            db.Load(db.FILENAME);
+            break;
+
+        case 7: //Save to File
+            db.Save(db.FILENAME);
             break;
         } // Outer Switch
 

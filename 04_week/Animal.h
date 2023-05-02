@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -19,5 +20,8 @@ public:
 	virtual void Read(std::ostream& ostr, std::istream& istr);
 	virtual void Write(std::ostream& ostr);
 	string GetName();
+
+	virtual void Read(std::ifstream& iftr);
+	virtual void Write(std::ofstream& oftr);
 };
 
