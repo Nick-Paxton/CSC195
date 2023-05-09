@@ -22,4 +22,7 @@ public:
 	void RemoveAll() { this->_animals.clear(); };
 	void Save(string filename);
 	void Load(string filename);
+
+	friend void operator << (const std::string filename, Database db);
+	friend void operator >> (const std::string filename, Database db);
 };

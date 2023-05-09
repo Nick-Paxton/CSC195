@@ -44,8 +44,8 @@ int main()
                 animal = db.Create(Animal::eType::Fish);
                 break;
             } // Inner Switch
-            animal->Read(cout, cin);
-            animal->Write(cout);
+            std::cout << *animal;
+            std::cin >> *animal;
             db.Add(animal);
             break; // Break create Bird/Fish
 
@@ -79,12 +79,12 @@ int main()
             db.RemoveAll();
             break;
 
-        case 6:
-            db.Load(db.FILENAME);
+        case 6: // Load from File
+            db.FILENAME << db;
             break;
 
         case 7: //Save to File
-            db.Save(db.FILENAME);
+            db.FILENAME >> db;
             break;
         } // Outer Switch
 

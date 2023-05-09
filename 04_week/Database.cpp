@@ -23,7 +23,7 @@ void Database::Add(std::unique_ptr<Animal>& animal) {
 // ////////////////////////////////////
 void Database::DisplayAll(std::ostream& ostr) {
 	for (std::unique_ptr<Animal>& animal : this->_animals) {
-		animal->Write(ostr);
+		std::cout << *animal;
 	}
 }
 // ////////////////////////////////////
@@ -31,7 +31,7 @@ void Database::Display(std::ostream& ostr, const std::string& name) {
 	bool p = false;
 	for (std::unique_ptr<Animal>& animal : this->_animals) {
 		if (animal->GetName().compare(name) == 0) {
-			animal->Write(ostr);
+			std::cout << *animal;
 			p = true;
 		}
 	}
@@ -44,7 +44,7 @@ void Database::Display(std::ostream& ostr, Animal::eType type) {
 	bool p = false;
 	for (std::unique_ptr<Animal>& animal : this->_animals) {
 		if (animal->GetType() == type) {
-			animal->Write(ostr);
+			std::cout << *animal;
 			p = true;
 		}
 	}
@@ -58,7 +58,8 @@ void Database::Save(string filename) {
 
 	if (output.is_open()) {
 		for (std::unique_ptr<Animal>& animal : this->_animals) {
-			animal->Write(output);
+			//animal->Write(output);
+			output << *animal;
 		}
 	}
 	else {
@@ -93,7 +94,7 @@ void Database::Load(string filename) {
 				//	animal = Create(Animal::eType::Bird);
 				//	break;
 				//}//End Switch
-				animal->Read(input);
+				std::cin >> *animal;
 				Add(animal);
 			} // End Inner If
 		} //End While
@@ -107,4 +108,11 @@ void Database::Load(string filename) {
 		input.close();
 	}
 }
-// ///////////////////////////
+// ////////////////////////////////////
+void operator << (const std::string filename, Database db) {
+	db.Load(filename);
+}
+// ////////////////////////////////////
+void operator >> (const std::string filename, Database db) {
+	db.Save(filename);
+}

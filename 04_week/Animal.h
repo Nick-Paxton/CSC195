@@ -23,5 +23,20 @@ public:
 
 	virtual void Read(std::ifstream& iftr);
 	virtual void Write(std::ofstream& oftr);
+
+	// [5-2]
+	friend bool operator == (const std::unique_ptr<Animal>& animal, const std::string& name) {
+		return (name == animal->GetName());
+	}
+	//
+	friend bool operator == (const std::unique_ptr<Animal>& animal, const Animal::eType& type) {
+		return (type == animal->GetType());
+	}
+	// Console
+	friend std::ostream& operator << (std::ostream& ostr, Animal& animal);
+	friend std::istream& operator >> (std::istream& istr, Animal& animal);
+	// File
+	friend std::ofstream& operator << (std::ofstream& oftr, Animal& animal);
+	friend std::ifstream& operator >> (std::ifstream& iftr, Animal& animal);
 };
 

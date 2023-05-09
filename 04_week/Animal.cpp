@@ -40,3 +40,25 @@ void Animal::Write(std::ofstream& oftr) {
 	oftr << this->_name << std::endl;
 	oftr << this->_lifespan << std::endl;
 }
+// ////////////////////////////////////
+// Console
+std::ostream& operator << (std::ostream& ostr, Animal& animal) {
+	animal.Write(ostr);
+	return ostr;
+}
+// ////////////////////////////////////
+std::istream& operator >> (std::istream& istr, Animal& animal) {
+	animal.Read(std::cout, istr);
+	return istr;
+}
+// ////////////////////////////////////
+// File
+std::ofstream& operator << (std::ofstream& oftr, Animal& animal) {
+	animal.Write(oftr);
+	return oftr;
+}
+// ////////////////////////////////////
+std::ifstream& operator >> (std::ifstream& iftr, Animal& animal) {
+	animal.Read(std::cout, iftr);
+	return iftr;
+}
