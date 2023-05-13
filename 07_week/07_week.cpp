@@ -15,12 +15,12 @@ int main()
 {
 	std::cout << "vector\n";
 	nc::vector<int> numbers{ 43, 23, 56, 7, 16 };
-	//numbers[0] = 84;
-	//numbers.push_back(99);
-	//Display(numbers);
-	//std::cout << "copy\n";
-	//nc::vector<int> copy;
-	//copy = numbers;
+	numbers[0] = 84;
+	numbers.push_back(99);
+	Display(numbers);
+	std::cout << "copy\n";
+	nc::vector<int> copy;
+	copy = numbers;
 	//copy.pop_back();
 	//copy.pop_back();
 	//Display(copy);
@@ -34,7 +34,7 @@ int main()
 	////REFERENCES
 	//std::cout << "assignment\n";
 	//copy = numbers;
-	//Display(numbers);
+	Display(numbers);
 	//std::cout << "resize\n";
 	//numbers.resize(10, 5);
 	//numbers.reserve(20);
