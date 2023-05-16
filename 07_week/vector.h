@@ -143,11 +143,11 @@ namespace nc
 		std::swap(_size, other._size);
 		std::swap(_capacity, other._capacity);
 		std::swap(_elements, other._elements);
-		/*nc::vector<int> copy;
+		/*nc::vector<int> copy; attempt 1
 		copy = other;
 		other = this;
 		this = copy;*/
-		/*if (other._size > _size) {
+		/*if (other._size > _size) { attempt 2
 			T* new_elements = new T[other.size()];
 			for (size_t iCount = 0; iCount < other.size(); iCount++) {
 				new_elements[iCount] = other[iCount];
