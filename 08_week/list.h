@@ -65,7 +65,11 @@ namespace nc
 	// ////////////////////////////////
 	template<typename T>
 	list<T>::list(const list& other) {
-		this = other;
+		node_t* node = other._head; // Temp pointer
+		while (node) {
+			push_back(node->_value);
+			node = node->_next;
+		}
 	}
 	// ////////////////////////////////
 	template<typename T>
