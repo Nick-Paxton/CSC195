@@ -1,0 +1,12 @@
+(int)charval - 97 = pos
+displayword() <- check letter array for if the letter has been guessed and then write it if it has been
+
+loop
+{
+	-display stuff
+	-get char
+	-did win?
+	-did lose?
+	-display win/lose
+	-repeat
+}
