@@ -143,43 +143,5 @@ namespace nc
 		std::swap(_size, other._size);
 		std::swap(_capacity, other._capacity);
 		std::swap(_elements, other._elements);
-		/*nc::vector<int> copy; attempt 1
-		copy = other;
-		other = this;
-		this = copy;*/
-		/*if (other._size > _size) { attempt 2
-			T* new_elements = new T[other.size()];
-			for (size_t iCount = 0; iCount < other.size(); iCount++) {
-				new_elements[iCount] = other[iCount];
-				if (iCount < _size) {
-					other[iCount] = _elements[iCount];
-				}
-			}
-			reserve(other.size());
-			size_t holderSize = other.size();
-			other.resize(size());
-			resize(holderSize);
-			for (size_t iCount = 0; iCount < other.size(); iCount++) {
-				_elements[iCount] = new_elements[iCount];
-			}
-			delete[] new_elements;
-		}
-		else if (_size > other._size) {
-			T* new_elements = new T[size()];
-			for (size_t iCount = 0; iCount < size(); iCount++) {
-				new_elements[iCount] = _elements[iCount];
-				if (iCount < other.size()) {
-					_elements[iCount] = other[iCount];
-				}
-			}
-			other.reserve(size());
-			size_t holderSize = size();
-			resize(other.size());
-			other.resize(holderSize);
-			for (size_t iCount = 0; iCount < size(); iCount++) {
-				other._elements[iCount] = new_elements[iCount];
-			}
-			delete[] new_elements;
-		}*/
 	}
 }
